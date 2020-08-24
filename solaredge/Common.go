@@ -27,6 +27,7 @@ package solaredge
 
 import (
 	"bytes"
+
 	"github.com/pkg/errors"
 	"github.com/u-root/u-root/pkg/uio"
 )

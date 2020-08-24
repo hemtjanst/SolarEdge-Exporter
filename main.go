@@ -26,21 +26,23 @@ SOFTWARE.
 package main
 
 import (
-	"SolarEdge-Exporter/config"
-	"SolarEdge-Exporter/exporter"
-	"SolarEdge-Exporter/solaredge"
 	"fmt"
-	"github.com/goburrow/modbus"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/rs/zerolog"
-	"github.com/rs/zerolog/log"
-	"github.com/spf13/viper"
 	"io"
 	"math"
 	"net/http"
 	"os"
 	"strconv"
 	"time"
+
+	"SolarEdge-Exporter/config"
+	"SolarEdge-Exporter/exporter"
+	"SolarEdge-Exporter/solaredge"
+
+	"github.com/goburrow/modbus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
+	"github.com/spf13/viper"
 )
 
 func main() {
@@ -98,7 +100,6 @@ func runCollection() {
 	log.Info().Msgf("Inverter Model: %s", cm.C_Model)
 	log.Info().Msgf("Inverter Serial: %s", cm.C_SerialNumber)
 	log.Info().Msgf("Inverter Version: %s", cm.C_Version)
-
 
 	infoData2, err := client.ReadHoldingRegisters(40121, 65)
 	cm2, err := solaredge.NewCommonMeter(infoData2)
