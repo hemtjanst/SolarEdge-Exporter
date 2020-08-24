@@ -47,30 +47,47 @@ More information on how to enable ModBus TCP can be found in the SolarEdge Docum
 
 ## Metrics
 
-|		Metric	 	 |	 Type	 |	Description/Help																																	 |
-|--------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-|SunSpec_DID     	 | 	 Guage 	 | 	 101 = single phase 102 = split phase1 103 = three phase                                                                                        	 |
-|SunSpec_Length  	 | 	 Guage 	 | 	 Registers 50 = Length of model block                                                                                                           	 |
-|AC_Current      	 | 	 Guage 	 | 	 Amps AC Total Current value                                                                                                                    	 |
-|AC_CurrentA     	 | 	 Guage 	 | 	 Amps AC Phase A Current value                                                                                                                  	 |
-|AC_CurrentB     	 | 	 Guage 	 | 	 Amps AC Phase B Current value                                                                                                                  	 |
-|AC_CurrentC     	 | 	 Guage 	 | 	 Amps AC Phase C Current value                                                                                                                  	 |
-|AC_VoltageAB    	 | 	 Guage 	 | 	 Volts AC Voltage Phase AB value                                                                                                                	 |
-|AC_VoltageBC    	 | 	 Guage 	 | 	 Volts AC Voltage Phase BC value                                                                                                                	 |
-|AC_VoltageCA    	 | 	 Guage 	 | 	 Volts AC Voltage Phase CA value                                                                                                                	 |
-|AC_VoltageAN    	 | 	 Guage 	 | 	 Volts AC Voltage Phase A to N value                                                                                                            	 |
-|AC_VoltageBN    	 | 	 Guage 	 | 	 Volts AC Voltage Phase B to N value                                                                                                            	 |
-|AC_VoltageCN    	 | 	 Guage 	 | 	 Volts AC Voltage Phase C to N value                                                                                                            	 |
-|AC_Power        	 | 	 Guage 	 | 	 Watts AC Power value                                                                                                                           	 |
-|AC_Frequency    	 | 	 Guage 	 | 	 Hertz AC Frequency value                                                                                                                       	 |
-|AC_VA           	 | 	 Guage 	 | 	 VA Apparent Power                                                                                                                              	 |
-|AC_VAR          	 | 	 Guage 	 | 	 VAR Reactive Power                                                                                                                             	 |
-|AC_PF           	 | 	 Guage 	 | 	 % Power Factor                                                                                                                                 	 |
-|AC_Energy_WH    	 | 	 Guage 	 | 	 WattHours AC Lifetime Energy production                                                                                                        	 |
-|DC_Current      	 | 	 Guage 	 | 	 Amps DC Current value                                                                                                                          	 |
-|DC_Voltage      	 | 	 Guage 	 | 	 Volts DC Voltage value                                                                                                                         	 |
-|DC_Power        	 | 	 Guage 	 | 	 Watts DC Power value                                                                                                                           	 |
-|Temp_Sink       	 | 	 Guage 	 | 	 Degrees C Heat Sink Temperature                                                                                                                	 |
-|Status          	 | 	 Guage 	 | 	 Operating State                                                                                                                                	 |
-|Status_Vendor   	 | 	 Guage 	 | 	 Vendor-defined operating state and error codes. For error description, meaning and troubleshooting, refer to the SolarEdge Installation Guide. 	 |
+### Inverter
 
+| Metric | Type | Unit | Labels | Description/Help |
+| -- | -- | -- | -- | -- |
+| SunSpec_DID | Guage | | | 101 = single phase 102 = split phase1 103 = three phase |
+| SunSpec_Length | Guage | Registers | | 50 = Length of model block |
+| Temp_Sink | Guage | Celsius | | Heat Sink Temperature |
+| Status | Guage | | | Operating State |
+| Status_Vendor | Guage | |	| Vendor-defined operating state and error codes |
+| AC_Current | Guage | Ampere | phase | AC Current value |
+| AC_Current_Total | Guage | Ampere | | AC Total Current total |
+| AC_Voltage | Guage | Volt | phase, type | AC Voltage Phase value |
+| AC_Power | Guage | Watt | | AC Power |
+| AC_Frequency | Guage | Hertz | | AC Frequency |
+| AC_VA | Guage | Volt Ampere | | Apparent Power |
+| AC_VAR | Guage | Watt | | Reactive Power |
+| AC_PF | Guage | Percent | | Power Factor |
+| AC_Energy_WH | Guage | Watt Hour | | AC Lifetime Energy production |
+| DC_Current | Guage | Ampere | | DC Current value |
+| DC_Voltage | Guage | Volt | | DC Voltage value |
+| DC_Power | Guage | Watt | | DC Power value |
+
+### Meter
+
+| Metric | Type | Unit | Labels | Description/Help |
+| -- | -- | -- | -- | -- |
+| SunSpec_DID | Guage | | | Value = 0x0001 |
+| SunSpec_Length | Guage | | | 65 = Length of block in 16-bit registers |
+| M_AC_Current | Guage | Ampere | phase | AC Current value |
+| M_AC_Current_Total | Guage | Ampere | | AC Total Current total |
+| M_AC_Voltage | Guage | Volt | phase, type | AC Voltage Phase value |
+| M_AC_Frequency | Guage | Hertz | | AC Frequency |
+| M_AC_Power | Guage | Watt | phase | AC Power |
+| M_AC_Power_Total | Guage | Watt | | AC Power Total |
+| M_AC_VA | Guage | Volt Ampere | phase | Apparent |
+| M_AC_VA_Total | Guage | Volt Ampere | | Apparent Total |
+| M_AC_VAR | Guage | Watt | phase | Reactive Power |
+| M_AC_VAR_Total | Gauge | Watt | | Reactive Power Total |
+| M_AC_PF | Guage | Percent | phase | Power Factor |
+| M_AC_PF_Total | Guage | Percent | | Power Factor Total |
+| M_Exported | Guage | Watt Hour | phase | Exported Real Energy|
+| M_Exported_Total | Guage | Watt Hour | | Total Exported Real Energy |
+| M_Imported | Guage | Watt Hour |  phase | Imported Real Energy |
+| M_Imported_Total | Guage | Watt Hour | | Total Imported Real Energy |

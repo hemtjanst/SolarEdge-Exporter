@@ -41,55 +41,20 @@ var (
 		Help: "Registers 50 = Length of model block",
 	})
 
-	AC_Current = promauto.NewGauge(prometheus.GaugeOpts{
+	AC_Current = promauto.NewGaugeVec(prometheus.GaugeOpts{
 		Name: "AC_Current",
-		Help: "Amps AC Total Current value",
+		Help: "Amps AC Current value",
+	}, []string{"phase"})
+
+	AC_Current_Total = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "AC_Current_total",
+		Help: "Amps AC Current total",
 	})
 
-	AC_CurrentA = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_CurrentA",
-		Help: "Amps AC Phase A Current value",
-	})
-
-	AC_CurrentB = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_CurrentB",
-		Help: "Amps AC Phase B Current value",
-	})
-
-	AC_CurrentC = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_CurrentC",
-		Help: "Amps AC Phase C Current value",
-	})
-
-	AC_VoltageAB = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_VoltageAB",
-		Help: "Volts AC Voltage Phase AB value",
-	})
-
-	AC_VoltageBC = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_VoltageBC",
-		Help: "Volts AC Voltage Phase BC value",
-	})
-
-	AC_VoltageCA = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_VoltageCA",
-		Help: "Volts AC Voltage Phase CA value",
-	})
-
-	AC_VoltageAN = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_VoltageAN",
-		Help: "Volts AC Voltage Phase A to N value",
-	})
-
-	AC_VoltageBN = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_VoltageBN",
-		Help: "Volts AC Voltage Phase B to N value",
-	})
-
-	AC_VoltageCN = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_VoltageCN",
-		Help: "Volts AC Voltage Phase C to N value",
-	})
+	AC_Voltage = promauto.NewGaugeVec(prometheus.GaugeOpts{
+		Name: "AC_Voltage",
+		Help: "Volts AC value",
+	}, []string{"phase", "type"})
 
 	AC_Power = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "AC_Power",
@@ -163,188 +128,83 @@ var (
 		Help: "",
 	})
 
-	M_AC_Current = promauto.NewGauge(prometheus.GaugeOpts{
+	M_AC_Current = promauto.NewGaugeVec(prometheus.GaugeOpts{
 		Name: "M_AC_Current",
 		Help: "Amps AC Total Current value",
+	}, []string{"phase"})
+
+	M_AC_Current_Total = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "M_AC_Current_total",
+		Help: "Amps AC Total Current total",
 	})
 
-	M_AC_CurrentA = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_CurrentA",
-		Help: "Amps AC Phase A Current value",
-	})
-
-	M_AC_CurrentB = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_CurrentB",
-		Help: "Amps AC Phase B Current value",
-	})
-
-	M_AC_CurrentC = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_CurrentC",
-		Help: "Amps AC Phase C Current value",
-	})
-
-	M_AC_VoltageLN = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VoltageLN",
-		Help: "Volts AC Voltage Phase AB value",
-	})
-
-	M_AC_VoltageAN = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VoltageAN",
-		Help: "Volts AC Voltage Phase BC value",
-	})
-
-	M_AC_VoltageBN = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VoltageBN",
-		Help: "Volts AC Voltage Phase BC value",
-	})
-
-	M_AC_VoltageCN = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VoltageCN",
-		Help: "Volts AC Voltage Phase BC value",
-	})
-
-	M_AC_VoltageLL = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VoltageLL",
-		Help: "Volts AC Voltage Phase BC value",
-	})
-
-	M_AC_VoltageAB = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VoltageAB",
-		Help: "Volts AC Voltage Phase BC value",
-	})
-
-	M_AC_VoltageBC = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VoltageBC",
-		Help: "Volts AC Voltage Phase BC value",
-	})
-
-	M_AC_VoltageCA = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VoltageCA",
-		Help: "Volts AC Voltage Phase BC value",
-	})
+	M_AC_Voltage = promauto.NewGaugeVec(prometheus.GaugeOpts{
+		Name: "M_AC_Voltage",
+		Help: "Volts AC Voltage Phase value",
+	}, []string{"phase", "type"})
 
 	M_AC_Frequency = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "M_AC_Frequency",
 		Help: "Hertz AC Frequency value",
 	})
 
-	M_AC_Power = promauto.NewGauge(prometheus.GaugeOpts{
+	M_AC_Power = promauto.NewGaugeVec(prometheus.GaugeOpts{
 		Name: "M_AC_Power",
 		Help: "Watts AC Power value",
+	}, []string{"phase"})
+
+	M_AC_Power_Total = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "M_AC_Power_total",
+		Help: "Watts AC Power total",
 	})
 
-	M_AC_Power_A = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_Power_A",
-		Help: "Watts AC Power value",
-	})
-
-	M_AC_Power_B = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_Power_B",
-		Help: "Watts AC Power value",
-	})
-
-	M_AC_Power_C = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_Power_C",
-		Help: "Watts AC Power value",
-	})
-
-	M_AC_VA = promauto.NewGauge(prometheus.GaugeOpts{
+	M_AC_VA = promauto.NewGaugeVec(prometheus.GaugeOpts{
 		Name: "M_AC_VA",
-		Help: "VA Apparent Power",
+		Help: "VA Apparent Power total",
+	}, []string{"phase"})
+
+	M_AC_VA_Total = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "M_AC_VA_total",
+		Help: "VA Apparent Power total",
 	})
 
-	M_AC_VA_A = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VA_A",
-		Help: "VA Apparent Power",
-	})
-
-	M_AC_VA_B = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VA_B",
-		Help: "VA Apparent Power",
-	})
-
-	M_AC_VA_C = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VA_C",
-		Help: "VA Apparent Power",
-	})
-
-	M_AC_VAR = promauto.NewGauge(prometheus.GaugeOpts{
+	M_AC_VAR = promauto.NewGaugeVec(prometheus.GaugeOpts{
 		Name: "M_AC_VAR",
 		Help: "VAR Reactive Power",
+	}, []string{"phase"})
+
+	M_AC_VAR_Total = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "M_AC_VAR_total",
+		Help: "VAR Reactive Power total",
 	})
 
-	M_AC_VAR_A = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VAR_A",
-		Help: "VAR Reactive Power",
-	})
-
-	M_AC_VAR_B = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VAR_B",
-		Help: "VAR Reactive Power",
-	})
-
-	M_AC_VAR_C = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VAR_C",
-		Help: "VAR Reactive Power",
-	})
-
-	M_AC_PF = promauto.NewGauge(prometheus.GaugeOpts{
+	M_AC_PF = promauto.NewGaugeVec(prometheus.GaugeOpts{
 		Name: "M_AC_PF",
 		Help: "% Power Factor",
-	})
+	}, []string{"phase"})
 
-	M_AC_PF_A = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_PF_A",
+	M_AC_PF_Total = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "M_AC_PF_total",
 		Help: "% Power Factor",
 	})
 
-	M_AC_PF_B = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_PF_B",
-		Help: "% Power Factor",
-	})
-
-	M_AC_PF_C = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_PF_C",
-		Help: "% Power Factor",
-	})
-
-	M_Exported = promauto.NewGauge(prometheus.GaugeOpts{
+	M_Exported = promauto.NewGaugeVec(prometheus.GaugeOpts{
 		Name: "M_Exported",
 		Help: "WattHours AC Exported",
-	})
+	}, []string{"phase"})
 
-	M_Exported_A = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_Exported_A",
+	M_Exported_Total = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "M_Exported_total",
 		Help: "WattHours AC Exported",
 	})
 
-	M_Exported_B = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_Exported_B",
-		Help: "WattHours AC Exported",
-	})
-
-	M_Exported_C = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_Exported_C",
-		Help: "WattHours AC Exported",
-	})
-
-	M_Imported = promauto.NewGauge(prometheus.GaugeOpts{
+	M_Imported = promauto.NewGaugeVec(prometheus.GaugeOpts{
 		Name: "M_Imported",
 		Help: "WattHours AC Imported",
-	})
+	}, []string{"phaes"})
 
-	M_Imported_A = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_Imported_A",
-		Help: "WattHours AC Imported",
-	})
-
-	M_Imported_B = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_Imported_B",
-		Help: "WattHours AC Imported",
-	})
-
-	M_Imported_C = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_Imported_C",
+	M_Imported_Total = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "M_Imported_total",
 		Help: "WattHours AC Imported",
 	})
 )
