@@ -61,11 +61,6 @@ var (
 		Help: "Amps AC Phase C Current value",
 	})
 
-	AC_Current_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_Current_SF",
-		Help: "AC Current scale factor",
-	})
-
 	AC_VoltageAB = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "AC_VoltageAB",
 		Help: "Volts AC Voltage Phase AB value",
@@ -96,19 +91,9 @@ var (
 		Help: "Volts AC Voltage Phase C to N value",
 	})
 
-	AC_Voltage_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_Voltage_SF",
-		Help: "AC Voltage scale factor",
-	})
-
 	AC_Power = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "AC_Power",
 		Help: "Watts AC Power value",
-	})
-
-	AC_Power_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_Power_SF",
-		Help: "AC Power scale factor",
 	})
 
 	AC_Frequency = promauto.NewGauge(prometheus.GaugeOpts{
@@ -116,19 +101,9 @@ var (
 		Help: "Hertz AC Frequency value",
 	})
 
-	AC_Frequency_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_Frequency_SF",
-		Help: "Scale factor",
-	})
-
 	AC_VA = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "AC_VA",
 		Help: "VA Apparent Power",
-	})
-
-	AC_VA_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_VA_SF",
-		Help: "Scale factor",
 	})
 
 	AC_VAR = promauto.NewGauge(prometheus.GaugeOpts{
@@ -136,19 +111,9 @@ var (
 		Help: "VAR Reactive Power",
 	})
 
-	AC_VAR_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_VAR_SF",
-		Help: "Scale factor",
-	})
-
 	AC_PF = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "AC_PF",
 		Help: "% Power Factor",
-	})
-
-	AC_PF_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_PF_SF",
-		Help: "Scale factor",
 	})
 
 	AC_Energy_WH = promauto.NewGauge(prometheus.GaugeOpts{
@@ -156,19 +121,9 @@ var (
 		Help: "WattHours AC Lifetime Energy production",
 	})
 
-	AC_Energy_WH_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "AC_Energy_WH_SF",
-		Help: "Scale factor",
-	})
-
 	DC_Current = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "DC_Current",
 		Help: "Amps DC Current value",
-	})
-
-	DC_Current_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "DC_Current_SF",
-		Help: "Scale factor",
 	})
 
 	DC_Voltage = promauto.NewGauge(prometheus.GaugeOpts{
@@ -176,29 +131,14 @@ var (
 		Help: "Volts DC Voltage value",
 	})
 
-	DC_Voltage_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "DC_Voltage_SF",
-		Help: "Scale factor",
-	})
-
 	DC_Power = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "DC_Power",
 		Help: "Watts DC Power value",
 	})
 
-	DC_Power_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "DC_Power_SF",
-		Help: "Scale factor",
-	})
-
 	Temp_Sink = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "Temp_Sink",
 		Help: "Degrees C Heat Sink Temperature",
-	})
-
-	Temp_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "Temp_SF",
-		Help: "Scale factor",
 	})
 
 	Status = promauto.NewGauge(prometheus.GaugeOpts{
@@ -243,11 +183,6 @@ var (
 		Help: "Amps AC Phase C Current value",
 	})
 
-	M_AC_Current_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_Current_SF",
-		Help: "AC Current scale factor",
-	})
-
 	M_AC_VoltageLN = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "M_AC_VoltageLN",
 		Help: "Volts AC Voltage Phase AB value",
@@ -288,19 +223,9 @@ var (
 		Help: "Volts AC Voltage Phase BC value",
 	})
 
-	M_AC_Voltage_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_Voltage_SF",
-		Help: "AC Voltage scale factor",
-	})
-
 	M_AC_Frequency = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "M_AC_Frequency",
 		Help: "Hertz AC Frequency value",
-	})
-
-	M_AC_Frequency_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_Frequency_SF",
-		Help: "Scale factor",
 	})
 
 	M_AC_Power = promauto.NewGauge(prometheus.GaugeOpts{
@@ -323,11 +248,6 @@ var (
 		Help: "Watts AC Power value",
 	})
 
-	M_AC_Power_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_Power_SF",
-		Help: "AC Power scale factor",
-	})
-
 	M_AC_VA = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "M_AC_VA",
 		Help: "VA Apparent Power",
@@ -346,11 +266,6 @@ var (
 	M_AC_VA_C = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "M_AC_VA_C",
 		Help: "VA Apparent Power",
-	})
-
-	M_AC_VA_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VA_SF",
-		Help: "Scale factor",
 	})
 
 	M_AC_VAR = promauto.NewGauge(prometheus.GaugeOpts{
@@ -373,11 +288,6 @@ var (
 		Help: "VAR Reactive Power",
 	})
 
-	M_AC_VAR_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_VAR_SF",
-		Help: "Scale factor",
-	})
-
 	M_AC_PF = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "M_AC_PF",
 		Help: "% Power Factor",
@@ -396,11 +306,6 @@ var (
 	M_AC_PF_C = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "M_AC_PF_C",
 		Help: "% Power Factor",
-	})
-
-	M_AC_PF_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_AC_PF_SF",
-		Help: "Scale factor",
 	})
 
 	M_Exported = promauto.NewGauge(prometheus.GaugeOpts{
@@ -441,10 +346,5 @@ var (
 	M_Imported_C = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "M_Imported_C",
 		Help: "WattHours AC Imported",
-	})
-
-	M_Energy_W_SF = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "M_Energy_W_SF",
-		Help: "M_Energy_W_SF",
 	})
 )
