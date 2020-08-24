@@ -1,14 +1,12 @@
-FROM golang:1.12 AS build
-RUN mkdir /see-build
-ADD . /see-build/
-WORKDIR /see-build
-RUN CGO_ENABLED=0 go build -o solaredge-exporter .
+FROM golang:1.15-alpine AS build
+WORKDIR /source
+COPY . .
+RUN CGO_ENABLED=0 go build -ldflags "-s -w" -o solaredge-exporter -v main.go
 
-FROM alpine:latest
+FROM scratch
 ENV INVERTER_ADDRESS 192.168.1.189
 ENV INVERTER_PORT 502
 ENV EXPORTER_INTERVAL 5
-RUN apk add --no-cache bash
-WORKDIR /root
-COPY --from=build /see-build/solaredge-exporter .
-CMD ["./solaredge-exporter"]
+
+COPY --from=build /source/solaredge-exporter /solaredge-exporter
+ENTRYPOINT ["/solaredge-exporter"]
